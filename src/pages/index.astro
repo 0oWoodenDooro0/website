@@ -1,16 +1,69 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 
+const projectModules = import.meta.glob('./*.md', { eager: true });
+const allProjects = Object.values(projectModules);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Vincent's Projects">
+
+    <div style="text-align: center; margin-bottom: 4rem;">
+        <h1>Vincent's Projects</h1>
+        <p style="color: var(--subtext0); font-size: 1.2rem;">
+            這是我學習中所建立的一些專案。
+        </p>
+    </div>
+
+    <div class="project-list">
+        {allProjects.map(project => (
+            <a href={project.url} class="project-card">
+                <h3>{project.frontmatter.title}</h3>
+                <p>{project.frontmatter.description || '點此查看專案詳情'}</p>
+            </a>
+        ))}
+    </div>
+
+</BaseLayout>
+
+<style>
+    .project-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+        .project-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .project-card {
+        display: block;
+        padding: 1.5rem;
+        background-color: var(--surface0);
+        border: 1px solid var(--surface1);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--mauve);
+    }
+
+    .project-card h3 {
+        color: var(--pink);
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+        border: none;
+        padding: 0;
+    }
+
+    .project-card p {
+        color: var(--subtext1);
+        margin: 0;
+    }
+</style>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+<BaseLayout title={frontmatter.title}>
+    <article class="markdown-body">
+        <h1>{frontmatter.title}</h1>
+        <slot />
+    </article>
+</BaseLayout>
+
+<style>
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3 {
+        color: var(--pink); 
+        border-bottom: 1px solid var(--surface1);
+        padding-bottom: .3em;
+    }
+
+    .markdown-body a,
+    .markdown-body a:visited {
+        color: var(--pink);
+        text-decoration: none;
+    }
+
+    .markdown-body a:hover {
+        text-decoration: underline;
+    }
+
+    .markdown-body code {
+        background-color: var(--surface0);
+        color: var(--red);
+        padding: .2em .4em;
+        border-radius: 6px;
+    }
+
+    .markdown-body pre {
+        background-color: var(--pink);
+        padding: 16px;
+        border-radius: 6px;
+        overflow-x: auto;
+    }
+
+    .markdown-body pre code {
+        background-color: transparent;
+        color: var(--text);
+    }
+    
+    .markdown-body blockquote {
+        padding: 0 1em;
+        color: var(--subtext0);
+        border-left: 0.25em solid var(--overlay0);
+    }
+</style>
