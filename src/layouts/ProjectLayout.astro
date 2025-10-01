@@ -9,28 +9,24 @@ const { frontmatter } = Astro.props;
     </article>
 </BaseLayout>
 
-<style>
+<style is:global>
     .markdown-body h1,
     .markdown-body h2,
     .markdown-body h3 {
-        color: var(--pink); 
+        color: var(--text); 
         border-bottom: 1px solid var(--surface1);
         padding-bottom: .3em;
     }
 
-    .markdown-body a,
-    .markdown-body a:visited {
+    .markdown-body a {
         color: var(--pink);
-        text-decoration: none;
-    }
-
-    .markdown-body a:hover {
         text-decoration: underline;
     }
 
     .markdown-body code {
         background-color: var(--surface0);
-        color: var(--red);
+        color: var(--text);
+        font-size: 85%;
         padding: .2em .4em;
         border-radius: 6px;
     }
@@ -43,13 +39,44 @@ const { frontmatter } = Astro.props;
     }
 
     .markdown-body pre code {
-        background-color: transparent;
+        background-color: var(--crust);
         color: var(--text);
     }
-    
+
     .markdown-body blockquote {
         padding: 0 1em;
         color: var(--subtext0);
-        border-left: 0.25em solid var(--overlay0);
+        border-left: 0.25em solid var(--pink);
+    }
+
+    .markdown-body table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        display: block;
+        overflow-x: auto;
+    }
+
+    .markdown-body tr {
+        background-color: var(--base);
+        border-top: 1px solid var(--surface1);
+    }
+
+    .markdown-body tr:nth-child(2n) {
+        background-color: var(--mantle);
+    }
+
+    .markdown-body th,
+    .markdown-body td {
+        padding: 12px 15px;
+        border: 1px solid var(--surface1);
+    }
+
+    .markdown-body th {
+        font-weight: 600;
+        color: var(--text);
+        text-align: left;
     }
 </style>
