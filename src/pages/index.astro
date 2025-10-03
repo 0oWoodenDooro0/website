@@ -4,6 +4,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const projectModules = import.meta.glob('./*.md', { eager: true });
 const allProjects = Object.values(projectModules);
 
+const saihsProject = {
+    url: '/saihs8041/index.html',
+    frontmatter: {
+        title: '松山工農資一智班級網頁',
+        description: '這是我的高職班網，使用了 HTML5 的模板進行客製化，記錄了當時的班級活動。',
+        publishDate: '2019-12-05',
+        tags: ['HTML']
+    }
+};
+
+allProjects.push(saihsProject);
+
 allProjects.sort((a, b) => new Date(b.frontmatter.publishDate).getTime() - new Date(a.frontmatter.publishDate).getTime());
 ---
 <BaseLayout title="Vincent's Portfolio">
