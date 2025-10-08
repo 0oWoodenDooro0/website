@@ -5,49 +5,80 @@ publishDate: "2024-10-26"
 tags: ["Python", "CLI Tool", "Algorithm", "Wordle"]
 description: "一個命令列工具，透過字母頻率分析與刪去法，為熱門猜字遊戲 Wordle 提供最佳猜測建議。"
 ---
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-## 專案簡介 | Overview
+WordleCrack is a command-line interface (CLI) tool designed to help players solve the daily Wordle puzzle more efficiently.
 
-WordleCrack 是一個使用 Python 撰寫的命令列 (CLI) 工具，旨在幫助玩家更有效率地解決每日的 Wordle 謎題。
+When a player inputs the hints from the game (green, orange, and gray letters), the tool calculates and recommends the most effective next guess based on its built-in word list and English letter frequency data, speeding up the solving process.
 
-當玩家將遊戲中得到的提示（綠色、橘色、灰色字母）輸入到工具後，它會根據內建的單字庫與英文字母頻率數據，計算並推薦出下一次最有效率的猜測單字。
+### Core Features
 
-**相關連結：**
-* **[原始碼 @ GitHub](https://github.com/0oWoodenDooro0/WordleCrack)**
+* **Smart Recommendations**: On the first turn, it suggests words that are most likely to contain multiple common letters.
+* **Precise Filtering**: Quickly narrows down the pool of possible words based on user input for `g` (green), `o` (orange), and `-` (gray) hints.
+* **Interactive Interface**: Allows users to play through multiple rounds of guesses in the terminal until the answer is found.
+* **Dynamic Strategy**: In the early stages of the game, the algorithm prioritizes suggesting words that explore more "unknown" letters to maximize information gain.
 
----
+### Built With
 
-## 主要功能 | Features
+[![Python][Python.org]][Python-url]
 
-* **智慧推薦**：首輪猜測時，會根據字母頻率推薦最可能包含多種熱門字母的單字。
-* **精準過濾**：根據使用者輸入的 `green` (字母與位置正確), `orange` (字母正確但位置錯誤), `gray` (字母不存在) 提示，快速縮小可能的單字範圍。
-* **互動式介面**：使用者可以在終端機中進行多輪猜測，直到找出正確答案。
-* **動態策略**：在遊戲初期，當已知字母較少時，演算法會優先推薦能探索更多「未知」字母的單字，以最大化資訊獲取量。
+<!-- GETTING STARTED -->
+## Getting Started
 
----
+Follow these steps to get a local copy up and running.
 
-## 技術棧 | Tech Stack
+### Prerequisites
 
-| 類別 | 技術 / 工具 |
-|---|---|
-| 語言 | `Python 3` |
-| 核心演算法 | 字母頻率分析、集合運算 (Set Operations)、單字過濾 |
-| 執行環境 | 命令列介面 (Command-Line Interface) |
-| 專案管理 | IntelliJ IDEA / PyCharm |
+* **Python 3.x**: Ensure you have Python 3 or a later version installed on your system.
 
+### Installation and Execution
 
----
+1. Clone this repo
 
-## 開發挑戰與學習 | Challenges & Learnings
+    ```sh
+    git clone [https://github.com/your_github_username/WordleCrack.git](https://github.com/your_github_username/WordleCrack.git)
+    ```
 
-這個專案最大的挑戰在於設計「推薦單字」的評分標準。
+2. Navigate to the project directory
 
-起初，我只考慮了剩餘可能性單字中的字母頻率。但我很快發現，在遊戲初期，猜一個包含全新字母的單字（即使它不是可能的答案），往往比猜一個符合當前條件的單字能帶來更多資訊。
+    ```sh
+    cd WordleCrack
+    ```
 
-為此，我對演算法進行了調整：
+3. Run the main script
 
-1.  **情境判斷**：程式會判斷目前已知的「有效字母」數量。
-2.  **策略切換**：如果已知字母過少 (少於3個)，推薦系統會從**整個單字庫**中，找出一個包含最多「全新且高頻率」字母的單字來當作「探索詞」。
-3.  **收斂猜測**：一旦收集到足夠的字母資訊，系統就會切換回在**剩餘的候選單字**中進行推薦。
+    ```sh
+    python main.py
+    ```
 
-透過這次開發，我深刻體會到演算法設計不僅是數學計算，更需要結合實際應用場景來調整策略。一個好的解題工具，不僅要會「猜答案」，更要懂得如何高效地「收集資訊」。
+<!-- USAGE EXAMPLES -->
+## Usage
+
+The program starts by recommending 5 initial words.
+
+`salet
+crate
+trace
+slate
+crane`
+
+Next, follow the prompts to enter your guess and the color feedback provided by Wordle.
+
+**Color Codes:**
+
+* `g` = green (letter is in the correct position)
+* `o` = orange (letter is in the word but in the wrong position)
+* `-` = gray (letter is not in the word)
+
+`Enter word: raise
+Enter color: -o-g-`
+
+The program will then calculate and display the best words for the next guess based on your feedback. Repeat this process until you find the answer. You can type `end` to start a new game.
+
+<!-- CONTACT -->
+## Contact
+
+[Vincent] - [vincent031525@gmail.com]
+
+Project Link: [https://github.com/0oWoodenDooro0/WordleCrack](https://github.com/0oWoodenDooro0/WordleCrack)
