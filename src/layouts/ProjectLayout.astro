@@ -24,23 +24,26 @@ const { frontmatter } = Astro.props;
     }
 
     .markdown-body code {
-        background-color: var(--surface0);
+        background-color: var(--mantle);
         color: var(--text);
         font-size: 85%;
         padding: .2em .4em;
         border-radius: 6px;
     }
 
+    .markdown-body .astro-code code {
+        background-color: var(--mantle);
+        color: var(--text);
+        font-size: 85%;
+        padding: 0;
+        border-radius: 6px;
+    }
+
     .markdown-body pre {
-        background-color: var(--pink);
+        background-color: var(--mantle) !important;
         padding: 16px;
         border-radius: 6px;
         overflow-x: auto;
-    }
-
-    .markdown-body pre code {
-        background-color: var(--crust);
-        color: var(--text);
     }
 
     .markdown-body blockquote {

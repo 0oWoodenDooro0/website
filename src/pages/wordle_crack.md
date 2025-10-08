@@ -21,7 +21,7 @@ When a player inputs the hints from the game (green, orange, and gray letters), 
 
 ### Built With
 
-[![Python][Python.org]][Python-url]
+[Python](https://www.python.org/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -37,7 +37,7 @@ Follow these steps to get a local copy up and running.
 1. Clone this repo
 
     ```sh
-    git clone [https://github.com/your_github_username/WordleCrack.git](https://github.com/your_github_username/WordleCrack.git)
+    git clone https://github.com/0oWoodenDooro0/WordleCrack.git
     ```
 
 2. Navigate to the project directory
@@ -57,11 +57,13 @@ Follow these steps to get a local copy up and running.
 
 The program starts by recommending 5 initial words.
 
-`salet
+```
+salet
 crate
 trace
 slate
-crane`
+crane
+```
 
 Next, follow the prompts to enter your guess and the color feedback provided by Wordle.
 
@@ -71,8 +73,10 @@ Next, follow the prompts to enter your guess and the color feedback provided by 
 * `o` = orange (letter is in the word but in the wrong position)
 * `-` = gray (letter is not in the word)
 
-`Enter word: raise
-Enter color: -o-g-`
+```
+Enter word: raise
+Enter color: -o-g-
+```
 
 The program will then calculate and display the best words for the next guess based on your feedback. Repeat this process until you find the answer. You can type `end` to start a new game.
 
